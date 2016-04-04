@@ -49,7 +49,7 @@
           Pelican Tutorial
         </h2>
         
-        <div class="text-muted">二 05 4月 2016</div>
+        <div class="text-muted">Tue 05 April 2016</div>
       </header>
 <!-- .entry-content -->
       <div class="entry-content">
@@ -84,7 +84,14 @@
 </pre></div>
 
 
-<p>還可以設定Disqus跟Google Analytics這裡不多介紹</p>
+<p>還可以設定Disqus跟Google Analytics這裡不多介紹
+記得要設<code>SITE_URL</code>，剛好我的Theme中文日期很醜，所以用了</p>
+<div class="highlight"><pre><span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s">&#39;Asia/Taipei&#39;</span>
+<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s">u&#39;en&#39;</span>
+<span class="n">LOCALE</span> <span class="o">=</span> <span class="s">u&#39;en_US&#39;</span>
+</pre></div>
+
+
 <h1>爽</h1>
 <p>要Render就<code>pelican content</code>，然後<code>ghp-import output</code>再<code>git push -f http://github.com/xxx/xxx.github.io.git gh-pages:master</code>就上去了
 Jekyll跟Hexo就待其他人介紹了，附上其他<a href="https://www.staticgen.com/">Static Generator</a></p>
@@ -121,7 +128,7 @@ Jekyll跟Hexo就待其他人介紹了，附上其他<a href="https://www.staticg
     </div>
     <footer class="footer">
       <div class="container">
-        <p class="footer-text">&copy; <a href="http://tewei.github.io">Pnnguin</a> powered by <a href="http://getpelican.com/">pelican</a> and <a href="http://nodotcom.org">nikhil</a></p>
+        <p class="footer-text">Presented by <a href="http://tewei.github.io">Pnnguin</a> Powered by <a href="http://getpelican.com/">pelican</a> Theme by <a href="http://nodotcom.org">nikhil</a></p>
       </div>
     </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
