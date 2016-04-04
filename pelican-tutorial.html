@@ -4,7 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
-    <title>Template Post - Pnnguin</title>
+    <title>Pelican Tutorial - Pnnguin</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
@@ -46,36 +46,62 @@
     <section id="content" class="article content">
       <header>
         <h2 class="entry-title">
-          Template Post
+          Pelican Tutorial
         </h2>
         
-        <div class="text-muted">一 04 4月 2016</div>
+        <div class="text-muted">二 05 4月 2016</div>
       </header>
 <!-- .entry-content -->
       <div class="entry-content">
-        <h1>Template Post</h1>
-<h2>Tested</h2>
-<h3>Yes</h3>
-<p><a href="http://tewei.github.io/pdfs/Resume.pdf">Static File</a></p>
-<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;Python code over here!&#39;</span><span class="p">)</span>
+        <h2>總說</h2>
+<p>Pelican是個Python寫的Static Generator，就是說你寫markdown他幫你轉成html然後自己上傳這樣</p>
+<h2>安裝</h2>
+<p>首先要跑完安裝流程<a href="http://docs.getpelican.com/en/3.6.3/quickstart.html">Pelican Quickstart</a>，再來就可以在content底下新增一些Post
+通常Header會長這樣</p>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">Pelican</span> <span class="n">Tutorial</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">05</span> <span class="mi">01</span><span class="o">:</span><span class="mi">30</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">Pelican</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">python</span><span class="o">,</span> <span class="n">pelican</span><span class="o">,</span> <span class="n">tutorial</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">pelican</span><span class="o">-</span><span class="n">tutorial</span>
+<span class="n">Authors</span><span class="o">:</span> <span class="n">Alexander</span> <span class="n">Shieh</span>
+<span class="n">Summary</span><span class="o">:</span> <span class="err">簡單的</span><span class="n">Pelican</span><span class="err">安裝教學</span>
 </pre></div>
 
 
-<p>List
-1. Hi
-2. Hello</p>
-<p><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lists">Markdown Cheet Sheet</a></p>
+<p>再來是處理static，要在pelicanconf裡面加</p>
+<div class="highlight"><pre><span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;folder&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>然後你會發現要連結檔案就只要</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">Link</span> <span class="n">to</span> <span class="n">xxx</span><span class="p">]({</span><span class="n">filename</span><span class="p">}</span><span class="o">/</span><span class="n">folder</span><span class="o">/</span><span class="n">xxx</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>設定</h2>
+<p>然後再換theme，我是用nikhil-theme然後改字體</p>
+<div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="s">&quot;blog-themes/nikhil-theme&quot;</span>
+</pre></div>
+
+
+<p>還可以設定Disqus跟Google Analytics這裡不多介紹</p>
+<h1>爽</h1>
+<p>要Render就<code>pelican content</code>，然後<code>ghp-import output</code>再<code>git push -f http://github.com/xxx/xxx.github.io.git gh-pages:master</code>就上去了
+Jekyll跟Hexo就待其他人介紹了，附上其他<a href="https://www.staticgen.com/">Static Generator</a></p>
       </div>
 <!-- /.entry-content -->
       <footer class="post-info text-muted">
         <button type="button" class="btn btn-default">          
-          <a href="http://tewei.github.io/category/misc.html"><div class="fa fa-lg fa-folder-open"></div> Misc</a>
+          <a href="http://tewei.github.io/category/pelican.html"><div class="fa fa-lg fa-folder-open"></div> Pelican</a>
+        </button>
+        <button type="button" class="btn btn-default">
+          <a href="http://tewei.github.io/tag/python.html"><div class="fa fa-lg fa-tag"></div> python</a>
         </button>
         <button type="button" class="btn btn-default">
           <a href="http://tewei.github.io/tag/pelican.html"><div class="fa fa-lg fa-tag"></div> pelican</a>
         </button>
         <button type="button" class="btn btn-default">
-          <a href="http://tewei.github.io/tag/markdown.html"><div class="fa fa-lg fa-tag"></div> markdown</a>
+          <a href="http://tewei.github.io/tag/tutorial.html"><div class="fa fa-lg fa-tag"></div> tutorial</a>
         </button>
       </footer>
       <!-- /.post-info -->
