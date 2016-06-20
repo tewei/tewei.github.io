@@ -47,41 +47,47 @@
     </header>
     <div class="post-entry">
         <h2>總說</h2>
-<p>Pelican是個Python寫的Static Generator，就是說你寫markdown他幫你轉成html然後自己上傳這樣</p>
+<p>Pelican是個Python寫的Static Generator，就是說你寫markdown他幫你轉成html然後自己上傳這樣
+可以使用github pages等幫你host的服務
+中文介紹詳見<a href="http://www.wengweitao.com/shi-yong-pelican-github-pagesda-jian-ge-ren-bo-ke.html">使用Pelican + Github Pages搭建個人博客</a></p>
 <h2>安裝</h2>
 <p>首先要跑完安裝流程<a href="http://docs.getpelican.com/en/3.6.3/quickstart.html">Pelican Quickstart</a>，再來就可以在content底下新增一些Post
-通常Header會長這樣</p>
-<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="n">Pelican</span> <span class="n">Tutorial</span>
-<span class="n">Date</span><span class="o">:</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">05</span> <span class="mi">01</span><span class="o">:</span><span class="mi">30</span>
-<span class="n">Category</span><span class="o">:</span> <span class="n">Pelican</span>
-<span class="n">Tags</span><span class="o">:</span> <span class="n">python</span><span class="o">,</span> <span class="n">pelican</span><span class="o">,</span> <span class="n">tutorial</span>
-<span class="n">Slug</span><span class="o">:</span> <span class="n">pelican</span><span class="o">-</span><span class="n">tutorial</span>
-<span class="n">Authors</span><span class="o">:</span> <span class="n">Alexander</span> <span class="n">Shieh</span>
-<span class="n">Summary</span><span class="o">:</span> <span class="err">簡單的</span><span class="n">Pelican</span><span class="err">安裝教學</span>
-</pre></div>
-
-
+通常Header會長這樣
+    :::markdown
+    Title: Pelican Tutorial
+    Date: 2016-04-05 01:30
+    Category: Pelican
+    Tags: python, pelican, tutorial
+    Slug: pelican-tutorial
+    Authors: Alexander Shieh
+    Summary: 簡單的Pelican安裝教學</p>
 <p>再來是處理static，要在pelicanconf裡面加</p>
-<div class="highlight"><pre><span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;folder&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;folder&#39;</span><span class="p">]</span>
 </pre></div>
 
 
 <p>然後你會發現要連結檔案就只要</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">Link</span> <span class="n">to</span> <span class="n">xxx</span><span class="p">]({</span><span class="n">filename</span><span class="p">}</span><span class="o">/</span><span class="n">folder</span><span class="o">/</span><span class="n">xxx</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>[Link to xxx]({filename}/folder/xxx)
 </pre></div>
 
 
 <h2>設定</h2>
-<p>然後再換theme，我是用nikhil-theme然後改字體</p>
-<div class="highlight"><pre><span class="n">THEME</span> <span class="o">=</span> <span class="s">&quot;blog-themes/nikhil-theme&quot;</span>
+<p>然後再換theme，比如說</p>
+<div class="highlight"><pre><span></span><span class="n">THEME</span> <span class="o">=</span> <span class="s2">&quot;blog-themes/Responsive-Pelican&quot;</span>
 </pre></div>
 
 
 <p>還可以設定Disqus跟Google Analytics這裡不多介紹
 記得要設<code>SITE_URL</code>，剛好我的Theme中文日期很醜，所以用了</p>
-<div class="highlight"><pre><span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s">&#39;Asia/Taipei&#39;</span>
-<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s">u&#39;en&#39;</span>
-<span class="n">LOCALE</span> <span class="o">=</span> <span class="s">u&#39;en_US&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s1">&#39;Asia/Taipei&#39;</span>
+<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s1">u&#39;en&#39;</span>
+<span class="n">LOCALE</span> <span class="o">=</span> <span class="s1">u&#39;en_US&#39;</span>
+</pre></div>
+
+
+<p>要加入Plugins，比如說<a href="https://github.com/barrysteyn/pelican_plugin-render_math">Math Render for Pelican</a>，把它下載到blog的一個資料夾，比如說pelican-plugins</p>
+<div class="highlight"><pre><span></span><span class="n">PLUGIN_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pelican-plugins&quot;</span><span class="p">]</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;render_math&quot;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -140,12 +146,6 @@ Jekyll跟Hexo就待其他人介紹了，附上其他<a href="https://www.staticg
                     Tagcloud
                 </div>
                 <div>
-                        <span><a href="http://tewei.github.io/tag/software-engineering.html">software engineering</a></span>
-                        <span><a href="http://tewei.github.io/tag/tutorial.html">tutorial</a></span>
-                        <span><a href="http://tewei.github.io/tag/git.html">git</a></span>
-                        <span><a href="http://tewei.github.io/tag/pelican.html">pelican</a></span>
-                        <span><a href="http://tewei.github.io/tag/python.html">python</a></span>
-                        <span><a href="http://tewei.github.io/tag/web.html">web</a></span>
                 </div>
             </section>
 
