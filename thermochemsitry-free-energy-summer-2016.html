@@ -81,6 +81,67 @@ Heat Capacity <span class="math">\(C\)</span> is an extensive property</p>
 <p>Because const. V, work is zero
 </p>
 <div class="math">$$\Delta E = q + w = q_V = \Delta T \times C$$</div>
+<h2>Entropy <span class="math">\(S\)</span></h2>
+<p>A measure of molecular randomness or disorder
+Positional Probability - Positional Microstates
+<a href="https://en.wikipedia.org/wiki/Boltzmann%27s_entropy_formula">Boltzmann Entropy Formula</a> (<span class="math">\(\Omega\)</span> corresponds to the number of microstates)
+</p>
+<div class="math">$$S = kb \ln \Omega$$</div>
+<h2>Second Law of Thermodynamics</h2>
+<p>In any spontaneous process there is always an increase in the entropy of the universe.</p>
+<div class="math">$$\Delta S_univ = \Delta S_sys + \Delta S_surr$$</div>
+<div class="math">$$\Delta S_surr = -\frac{\Delta H}{T}$$</div>
+<h2><a href="https://en.wikipedia.org/wiki/Gibbs_free_energy">Gibbs Free Energy</a></h2>
+<div class="math">$$G = H - TS$$</div>
+<p>
+Under const. T
+</p>
+<div class="math">$$\Delta G = \Delta H - T \Delta S$$</div>
+<div class="math">$$-\frac{\Delta G}{T} = -\frac{\Delta H}{T} + \Delta S = \Delta S_sys + \Delta S_surr = \Delta S_univ$$</div>
+<p>
+A process at const. T and P is spontaneous only if <span class="math">\(\Delta G\)</span> is negative.
+$\DeltaH - \Delta S + $ Spontaneous at All T
+$\DeltaH + \Delta S + $ Spontaneous at High T
+$\DeltaH - \Delta S - $ Spontaneous at Low T (Exothermicity is dominant)
+$\DeltaH + \Delta S - $ Not Spontaneous</p>
+<h2>Third Law of Thermodynamics</h2>
+<p>Entropy of a perfect crystal at 0 K is zero.
+Therefore, standard entropy <span class="math">\(S^0\)</span> is normally greater than zero. However there are some special cases (<span class="math">\(F^-\)</span> and <span class="math">\(OH^-\)</span>)
+Generally, the more complex the molecule, the higher the standard entropy value (e.g. rotational and vibrational motions).</p>
+<h2>Standard Free Energy Change</h2>
+<div class="math">$$\Delta G^0 = \Delta H^0 - T \Delta S^0$$</div>
+<p>
+Entropy is a state function
+</p>
+<div class="math">$$\Delta S^0_reaction = \sum n_p S^0_p - \sum n_r S^0_r$$</div>
+<p>
+Standard free energy of formation(<span class="math">\(\Delta G_f^0\)</span>)</p>
+<h2>Dependance of Free Energy on Pressure</h2>
+<p>For an ideal gas, enthalpy is not pressure-dependent, but entropy does depend on pressure because of volume.
+</p>
+<div class="math">$$G = G^0 + RT \ln P$$</div>
+<p>Pf.
+</p>
+<div class="math">$$dE = TdS - PdV$$</div>
+<div class="math">$$dH = dE + PdV + VdP$$</div>
+<div class="math">$$dG = dH - TdS - SdT$$</div>
+<div class="math">$$dG = TdS - PdV + PdV + VdP - TdS - SdT = VdP$$</div>
+<p>
+(Under const. T <span class="math">\(dT = 0\)</span>)
+</p>
+<div class="math">$$\int_i^f dG =  \int_i^f VdP = \int_i^f \frac{RT}{P} dP = RT \int_i^f \ln P$$</div>
+<div class="math">$$G_f - G_i = RT\ln\frac{P_f}{P_i}$$</div>
+<p>
+When <span class="math">\(G_i = G_0\)</span> and <span class="math">\(P_i = 1\)</span> (atm)
+</p>
+<div class="math">$$G - G_0 = RT\ln P$$</div>
+<p>Using
+</p>
+<div class="math">$$\Delta G = \sum n_p G_p - \sum n_r G_r$$</div>
+<p>
+We can get the relationship between <span class="math">\(\Delta G\)</span> of a reaction and the reaction quotient <span class="math">\(Q\)</span>
+</p>
+<div class="math">$$\Delta G = \Delta G_0 + RT\ln Q$$</div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
