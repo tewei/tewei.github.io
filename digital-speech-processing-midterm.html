@@ -54,24 +54,105 @@
 			<a href="http://tewei.github.io/tag/dsp.html" rel="tag">dsp</a>
 		</span>
 	</div>
-	<div itemprop="articleBody" class="article-body"><p><strong> Acoustic Modelling
-</strong> Hidden Markov Model
-<strong> Viterbi Algorithm
-</strong> Baum-Welch Algorithm
-<strong> Information Theory
-</strong> Vector Quantization
-<strong> K-means and LBG
-</strong> Segmental K-means
-<strong> Estimation Maximization (EM)
-</strong> Gaussian Mixture Model (GMM)
-<strong> Classification and Regression Trees (CART)
-</strong> Language Model
-<strong> Smoothing
-</strong> MFCC
-<strong> Dynamic Time Warping
-</strong> Time Synchronous Viterbi Search
-<strong> Beam Search / Two Pass Search
-</strong> LVCSR</p></div>
+	<div itemprop="articleBody" class="article-body"><p>想辦法用一句話告訴你DSP的每個部分在做什麼~~~</p>
+<p>** Acoustic Modelling
+究竟要用Phoneme、Tri-Phone還是Word好呢？xD</p>
+<p>** Hidden Markov Model
+經典三問題：算<span class="math">\(P(O| \Lambda )\)</span>、算Optimal Sequence (用Viterbi)、訓練Model(換句話說maximize <span class="math">\(P(O| \Lambda )\)</span>)，
+詳見開山祖師Rabiner的<a href="http://www.ece.ucsb.edu/Faculty/Rabiner/ece259/Reprints/tutorial%20on%20hmm%20and%20applications.pdf">Tutorial</a>！</p>
+<p>** Viterbi Algorithm
+用DP算機率最大的Optimal Sequence的演算法。</p>
+<p>** Baum-Welch Algorithm
+基本上是由EM導出來的HMM Training Algorithm，可是只能保證local optimal。</p>
+<p>** Information Theory</p>
+<p>** Vector Quantization
+這是一種Dimensionality Reduction的方法，主要是說把一個Continuous Vector縮成只有<span class="math">\(T\)</span>個bit的coding，所以就分成<span class="math">\(2^T\)</span>個Cluster。</p>
+<p>** K-means and LBG
+經典的Clustering演算法，K-means的正確性可以用EM證明，而LBG是一個比較好的Initialization方法，就是一開始用某種Heuristic的方法找兩個很遠的點再開始K-means，然後一直切半下去。</p>
+<p>** Segmental K-means
+這是在做HMM的初始化的時候，搭配Viterbi，決定GMM要怎麼切的方法。詳見MIT的<a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-345-automatic-speech-recognition-spring-2003/lecture-notes/lecture6new.pdf">ASR Slides</a></p>
+<p>** Estimation Maximization (EM)
+這實在是不好說，直接看寫好的版本<a href="https://courses.csail.mit.edu/6.867/wiki/images/b/b5/Em_tutorial.pdf">An Introduction to Expectation-Maximization</a>，一個我覺得很清楚的版本<a href="https://www2.ee.washington.edu/techsite/papers/documents/UWEETR-2010-0002.pdf">EM Demystified: An Expectation-Maximization Tutorial</a>！</p>
+<p>** Gaussian Mixture Model (GMM)
+當你有39維MFCC的時候，就不能用Discrete的表示法做HMM每個state的observe probability，</p>
+<p>** Classification and Regression Trees (CART)</p>
+<p>** Language Model &amp; Smoothing
+<a href="https://web.stanford.edu/class/cs124/lec/languagemodeling.pdf">Language Modeling Slides, Stanford CS124</a>
+現在比較潮的做法是RNNLM</p>
+<p>** MFCC
+Front-End把訊號轉成Vector的方法。(沒修過Signal and Systems實在)</p>
+<p>** Dynamic Time Warping
+是個想辦法讓Test跟Reference訊號調整成同一個時間軸的方法，要定義一個好的Distance，在One Word、Closed Vocabulary中可以有不少作用。</p>
+<p>** Time Synchronous Viterbi Search
+根據MAP Principle <span class="math">\(W^* = argmax_W P(W | X) = argmax_W P(X|W)P(W)\)</span>，前面的那個<span class="math">\(P(X|W)\)</span>就是HMM的結果，後面的<span class="math">\(P(W)\)</span>就是Language Model！
+從Tri-Phone組成的HMM、Intra-Word Lexicon Tree到Inter-Word的Language Model，最後搜出最佳的word sequence~~~</p>
+<p>** Beam Search / Two Pass Search
+限制、縮減(Pruning?)Search Space的方法，不過似乎也有One Pass的方法。</p>
+<p>** LVCSR</p>
+<p>總覺得這個問題已經快解掉了，Data多的強權總是可以用超Deep超Recurrent的Model電所有人Orzzz</p>
+<p>"Every time I fire a linguist, the performance of the speech recognizer goes up" -- Frederick Jelinek</p>
+<ul>
+<li><a href="https://arxiv.org/abs/1610.05256">Achieving Human Parity in Conversational Speech Recognition</a></li>
+<li><a href="https://arxiv.org/abs/1512.02595">Deep Speech 2: End-to-End Speech Recognition in English and Mandarin</a></li>
+</ul>
+<p>還是去做Reinforcement Learning好了QQ</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' }, Macros: {} }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div>
 	<hr>
 	<h2>Comments</h2>
 <div id="disqus_thread"></div>
