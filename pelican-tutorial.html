@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Pelican Tutorial — Pnnguin</title>
+	<meta name="description" content="Title: Pelican Tutorial; Date: 2016-04-05; Author: Alexander Shieh">
+	<meta name="author" content="Alexander Shieh">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="http://tewei.github.io/theme/html5.js"></script>
+		<![endif]-->
+	<link href="http://tewei.github.io/theme/css/ipython.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
+	<link href="http://tewei.github.io/theme/css/local.css" rel="stylesheet">
+	<link href="http://tewei.github.io/theme/css/pygments.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1><a href="http://tewei.github.io/">Pnnguin</a>
+			<br>	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="text-center article-header">
+		<h1 itemprop="name headline" class="article-title">Pelican Tutorial</h1>
+		<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+			<h4 itemprop="name">Alexander Shieh</h4>
+		</span>
+		<time datetime="2016-04-05T01:30:00+08:00" itemprop="datePublished">Tue 05 April 2016</time>
+	</div>
+	<div>
+		Category:
+		<span itemprop="articleSection">
+			<a href="http://tewei.github.io/category/pelican.html" rel="category">Pelican</a>
+		</span>
+	</div>
+ 
+	<div>
+		Tags:
+		<span itemprop="keywords">
+			<a href="http://tewei.github.io/tag/python.html" rel="tag">python</a>
+		</span>
+		<span itemprop="keywords">
+			<a href="http://tewei.github.io/tag/pelican.html" rel="tag">pelican</a>
+		</span>
+		<span itemprop="keywords">
+			<a href="http://tewei.github.io/tag/tutorial.html" rel="tag">tutorial</a>
+		</span>
+	</div>
+	<div itemprop="articleBody" class="article-body"><h2>總說</h2>
+<p><a href="http://docs.getpelican.com/en/3.6.3/">Pelican</a>是個Python寫的Static Generator，就是說你寫markdown他幫你轉成html然後自己上傳這樣
+可以使用github pages等幫你host的服務
+中文介紹詳見<a href="http://www.wengweitao.com/shi-yong-pelican-github-pagesda-jian-ge-ren-bo-ke.html">使用Pelican + Github Pages搭建個人博客</a></p>
+<h2>安裝</h2>
+<p>首先要跑完安裝流程<a href="http://docs.getpelican.com/en/3.6.3/quickstart.html">Pelican Quickstart</a>，再來就可以在content底下新增一些Post
+通常Header會長這樣</p>
+<div class="highlight"><pre><span></span><span class="n">Title</span><span class="o">:</span> <span class="n">Pelican</span> <span class="n">Tutorial</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">05</span> <span class="mi">01</span><span class="o">:</span><span class="mi">30</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">Pelican</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">python</span><span class="o">,</span> <span class="n">pelican</span><span class="o">,</span> <span class="n">tutorial</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">pelican</span><span class="o">-</span><span class="n">tutorial</span>
+<span class="n">Authors</span><span class="o">:</span> <span class="n">Alexander</span> <span class="n">Shieh</span>
+<span class="n">Summary</span><span class="o">:</span> <span class="err">簡單的</span><span class="n">Pelican</span><span class="err">安裝教學</span>
+</pre></div>
+
+
+<p>再來是處理static，要在pelicanconf裡面加</p>
+<div class="highlight"><pre><span></span><span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;folder&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>然後你會發現要連結檔案就只要</p>
+<div class="highlight"><pre><span></span>[Link to xxx]({filename}/folder/xxx)
+</pre></div>
+
+
+<h2>設定</h2>
+<p>然後再換theme，比如說</p>
+<div class="highlight"><pre><span></span><span class="n">THEME</span> <span class="o">=</span> <span class="s2">&quot;blog-themes/Responsive-Pelican&quot;</span>
+</pre></div>
+
+
+<p>還可以設定Disqus跟Google Analytics這裡不多介紹
+記得要設<code>SITE_URL</code>，剛好我的Theme中文日期很醜，所以用了</p>
+<div class="highlight"><pre><span></span><span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s1">&#39;Asia/Taipei&#39;</span>
+<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s1">u&#39;en&#39;</span>
+<span class="n">LOCALE</span> <span class="o">=</span> <span class="s1">u&#39;en_US&#39;</span>
+</pre></div>
+
+
+<p>要加入Plugins，比如說<a href="https://github.com/barrysteyn/pelican_plugin-render_math">Math Render for Pelican</a>，把它下載到blog的一個資料夾，比如說pelican-plugins</p>
+<div class="highlight"><pre><span></span><span class="n">PLUGIN_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pelican-plugins&quot;</span><span class="p">]</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;render_math&quot;</span><span class="p">]</span>
+</pre></div>
+
+
+<h1>爽</h1>
+<p>所以現在就可以
+</p>
+<div class="math">$$\int_a^b \frac{1}{x} dx$$</div>
+<p>要Render就<code>pelican content</code>，然後<code>ghp-import output</code>再<code>git push -f http://github.com/xxx/xxx.github.io.git gh-pages:master</code>就上去了
+Jekyll跟Hexo就待其他人介紹了，附上其他<a href="https://www.staticgen.com/">Static Generator</a></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' }, Macros: {} }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div>
+	<hr>
+	<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tewei'; 
+    var disqus_title = 'Pelican Tutorial';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+		</div>
+	</div> 	<!-- <hr> -->
+</div> <!-- /container -->
+<footer class="aw-footer bg-danger">
+	<div class="container"> <!-- footer -->
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+					<div class="col-md-3">
+						<h4>Navigation</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="http://tewei.github.io">Pnnguin</a></li>
+							<li><a href="http://tewei.github.io/pages/about.html"><i class="fa fa-About "></i> About</a></li>
+							<li><a href="http://tewei.github.io/pages/interests.html"><i class="fa fa-Interests "></i> Interests</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Author</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="https://tw.linkedin.com/in/alexander-shieh-924488b6">Linkedin</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Categories</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="http://tewei.github.io/category/Biology.html">Biology (3)</a></li>
+							<li><a href="http://tewei.github.io/category/Chemistry.html">Chemistry (3)</a></li>
+							<li><a href="http://tewei.github.io/category/Computer-Science.html">Computer Science (3)</a></li>
+							<li><a href="http://tewei.github.io/category/Pelican.html">Pelican (1)</a></li>
+							<li><a href="http://tewei.github.io/category/Software-Engineering.html">Software Engineering (1)</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Links</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="http://www.startaiwan.org/">STARTAIWAN</a></li>
+							<li><a href="http://infor.org/">INFOR</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center center-block aw-bottom">
+			<p>Blog of Alexander Shieh</p>
+			<p>Powered by Pelican</p>
+		</div>
+	</div>
+</div>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$("div.collapseheader").click(function () {
+		$header = $(this).children("span").first();
+		$codearea = $(this).children(".input_area");
+		$codearea.slideToggle(500, function () {
+			$header.text(function () {
+				return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+			});
+		});
+	});
+});
+</script>
+</body>
+</html>
